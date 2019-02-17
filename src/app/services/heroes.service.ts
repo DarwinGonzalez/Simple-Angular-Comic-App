@@ -1,4 +1,12 @@
-[
+import { Injectable } from '@angular/core';
+import { Heroe } from './heroe';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HeroesService {
+
+  private heroes: Heroe[] = [
     {
       nombre: "Aquaman",
       bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
@@ -49,3 +57,15 @@
       casa: "Marvel"
     }
   ];
+
+  constructor() {}
+
+  getHeroes(): Heroe[] {
+    return this.heroes;
+  }
+
+  getHeroe(id: number): Heroe{
+    return this.heroes[id];
+  }
+
+}
